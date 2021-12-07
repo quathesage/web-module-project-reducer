@@ -1,5 +1,6 @@
 import React, {useReducer} from 'react';
 import reducer, {initialState} from '../reducers';
+import { addOne, applyNumber } from '../actions';
 
 import './App.css';
 
@@ -8,6 +9,10 @@ import CalcButton from './CalcButton';
 
 function App() {
 const [state, dispatch] = useReducer(reducer, initialState);
+
+const handleClick = (e) => {
+  dispatch(applyNumber(e.target.value))
+}
 
   return (
     <div className="App">
@@ -32,21 +37,21 @@ const [state, dispatch] = useReducer(reducer, initialState);
             </div>
 
             <div className="row">
-              <CalcButton value={1}/>
-              <CalcButton value={2}/>
-              <CalcButton value={3}/>
+              <CalcButton onClick={handleClick} value={1}/>
+              <CalcButton onClick={handleClick} value={2}/>
+              <CalcButton onClick={handleClick} value={3}/>
             </div>
 
             <div className="row">
-              <CalcButton value={4}/>
-              <CalcButton value={5}/>
-              <CalcButton value={6}/>
+              <CalcButton onClick={handleClick} value={4}/>
+              <CalcButton onClick={handleClick} value={5}/>
+              <CalcButton onClick={handleClick} value={6}/>
             </div>
 
             <div className="row">
-              <CalcButton value={7}/>
-              <CalcButton value={8}/>
-              <CalcButton value={9}/>
+              <CalcButton onClick={handleClick} value={7}/>
+              <CalcButton onClick={handleClick} value={8}/>
+              <CalcButton onClick={handleClick} value={9}/>
             </div>
 
             <div className="row">
